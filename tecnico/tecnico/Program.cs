@@ -1,34 +1,63 @@
-﻿using System.Runtime.CompilerServices;
-//falta poner las validadciones de los datos que se ingresan
+﻿using System;
+
 namespace XelaTech
 {
-    class tecnico
+    public enum Especialidad
     {
-        private string codigoTecnico;
+        ComputadoraPortatil,
+        ComputadoraEscritorio,
+        Impresora
+    }
 
-        public string CodigoTecnico
+    public class Tecnico
+    {
+        // Límite de trabajos activos por técnico
+        public const int LIMITE_ACTIVOS = 3;
+
+        private string codigo;
+        public string Codigo
         {
-            get { return codigoTecnico; }
-            set { codigoTecnico = value; }
+            get { return codigo; }
+            set
+            {
+                if (value == null || value.Trim() == "")
+                {
+                    throw new ArgumentException("El código del técnico no puede quedar vacío.");
+                }
+                if (value.Length > 10)
+                {
+                    throw new ArgumentException("El código del técnico no puede exceder los 10 caracteres.");
+                }
+                codigo = value.Trim();
+            }
         }
-        private string nombreTecnico;
 
-        public string NombreTecnico
+        private string nombreCompleto;
+        public string NombreCompleto
         {
-            get { return nombreTecnico; }
-            set { nombreTecnico = value; }
+            get { return nombreCompleto; }
+            set
+            {
+                if (value == null || value.Trim() == "")
+                {
+                    throw new ArgumentException("El nombre del técnico no puede quedar vacío.");
+                }
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("El nombre del técnico no puede exceder los 50 caracteres.");
+                }
+                nombreCompleto = value.Trim();
+            }
         }
 
-        //falta mejorar la especialidad del tecnico
-        private string especialidad;
-        public string Especialidad
+        private Especialidad especialidad;
+        public Especialidad Especialidad
         {
             get { return especialidad; }
             set { especialidad = value; }
         }
 
         private bool disponible;
-
         public bool Disponible
         {
             get { return disponible; }
@@ -36,89 +65,155 @@ namespace XelaTech
         }
 
         private int trabajosActivos;
-
         public int TrabajosActivos
         {
             get { return trabajosActivos; }
-            set { trabajosActivos = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Los trabajos activos no pueden ser negativos.");
+                }
+                if (value > LIMITE_ACTIVOS)
+                {
+                    throw new ArgumentException("Los trabajos activos no pueden superar el límite de " + LIMITE_ACTIVOS + ".");
+                }
+                trabajosActivos = value;
+            }
         }
 
-        private int trabajosFinalizados;
-
-        public int TrabajosFinalizados
+        private int serviciosFinalizados;
+        public int ServiciosFinalizados
         {
-            get { return trabajosFinalizados; }
-            set { trabajosFinalizados = value; }
+            get { return serviciosFinalizados; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Los servicios finalizados no pueden ser negativos.");
+                }
+                serviciosFinalizados = value;
+            }
         }
 
+       
         private int[] conteoCalificaciones;
-
         public int[] ConteoCalificaciones
         {
             get { return conteoCalificaciones; }
-            set { conteoCalificaciones = value; }
+            set
+            {
+                if (value == null || value.Length != 5)
+                {
+                    throw new ArgumentException("El arreglo de calificaciones debe tener 5 posiciones (de 1 a 5).");
+                }
+                for (int i = 0; i < value.Length; i++)
+                {
+                    if (value[i] < 0)
+                    {
+                        throw new ArgumentException("El conteo de calificaciones no puede ser negativo.");
+                    }
+                }
+                conteoCalificaciones = value;
+            }
         }
 
-        public void TieneCupo ()
+        // Constructores
+
+        // Constructor vacío
+        public Tecnico()
         {
-            if (trabajosActivos < 3)
-            {
-                disponible = true;
-                Console.WriteLine("El técnico tiene cupo para más trabajos.");
-            }
-            else
-            {
-                disponible = false;
-                Console.WriteLine("El técnico no tiene cupo para más trabajos");
-            }
+            disponible = true;
+            trabajosActivos = 0;
+            serviciosFinalizados = 0;
+            conteoCalificaciones = new int[5];
         }
 
-        public void PuedeAtender()
+        // Sobrecarga del constructor
+        public Tecnico(string codigo, string nombreCompleto, Especialidad especialidad)
         {
-            if (disponible)
-            {
-                Console.WriteLine("El técnico puede atender más trabajos.");
-            }
-            else
-            {
-                Console.WriteLine("El técnico no puede atender más trabajos.");
-            }
+            Codigo = codigo;
+            NombreCompleto = nombreCompleto;
+            Especialidad = especialidad;
+            disponible = true;
+            trabajosActivos = 0;
+            serviciosFinalizados = 0;
+            conteoCalificaciones = new int[5];
         }
 
+        // +TieneCupo() : bool
+        public bool TieneCupo()
+        {
+            return trabajosActivos < LIMITE_ACTIVOS;
+        }
+
+        // +PuedeAtender(Especialidad) : bool
+        public bool PuedeAtender(Especialidad requerida)
+        {
+            return especialidad == requerida;
+        }
+
+        // +AsignarTrabajo()
+        public void AsignarTrabajo()
+        {
+            if (!disponible)
+            {
+                throw new InvalidOperationException("El técnico no está disponible.");
+            }
+            if (!TieneCupo())
+            {
+                throw new InvalidOperationException("El técnico alcanzó el límite de " + LIMITE_ACTIVOS + " trabajos activos.");
+            }
+            trabajosActivos = trabajosActivos + 1;
+        }
+
+        // +FinalizarTrabajo()
         public void FinalizarTrabajo()
         {
-            if (trabajosActivos > 0)
+            if (trabajosActivos == 0)
             {
-                trabajosActivos--;
-                trabajosFinalizados++;
-                Console.WriteLine("El técnico ha finalizado un trabajo.");
+                throw new InvalidOperationException("El técnico no tiene trabajos activos para finalizar.");
             }
-            else
-            {
-                Console.WriteLine("El técnico no tiene trabajos activos para finalizar.");
-            }
+            trabajosActivos = trabajosActivos - 1;
+            serviciosFinalizados = serviciosFinalizados + 1;
         }
 
-
-        public void registrarCalificaciones()
+        // +RegistrarCalificacion(int)
+        public void RegistrarCalificacion(int calificacion)
         {
-            int totalCalificaciones = 0;
-            int sumaCalificaciones = 0;
+            if (calificacion < 1 || calificacion > 5)
+            {
+                throw new ArgumentException("La calificación debe estar entre 1 y 5.");
+            }
+            conteoCalificaciones[calificacion - 1] = conteoCalificaciones[calificacion - 1] + 1;
+        }
+
+        // CalcularPromedio
+        public double CalcularPromedio()
+        {
+            int total = 0;
+            int suma = 0;
+
             for (int i = 0; i < conteoCalificaciones.Length; i++)
             {
-                totalCalificaciones += conteoCalificaciones[i];
-                sumaCalificaciones += conteoCalificaciones[i] * (i + 1);
+                total = total + conteoCalificaciones[i];
+                suma = suma + conteoCalificaciones[i] * (i + 1);
             }
-            if (totalCalificaciones > 0)
+
+            if (total == 0)
             {
-                double calificacionPromedio = (double)sumaCalificaciones / totalCalificaciones;
-                Console.WriteLine($"La calificación promedio del técnico es: {calificacionPromedio:F2}");
+                return 0;
             }
-            else
-            {
-                Console.WriteLine("El técnico no tiene calificaciones registradas.");
-            }
+            return (double)suma / total;
         }
 
+        public override string ToString()
+        {
+            return Codigo + " | " + NombreCompleto + " | " + Especialidad +
+                   " | Disponible: " + (Disponible ? "Sí" : "No") +
+                   " | Activos: " + TrabajosActivos + "/" + LIMITE_ACTIVOS +
+                   " | Finalizados: " + ServiciosFinalizados +
+                   " | Promedio: " + CalcularPromedio().ToString("F2");
+        }
     }
 }

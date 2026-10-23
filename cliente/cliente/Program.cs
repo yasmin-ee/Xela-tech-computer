@@ -1,164 +1,83 @@
-﻿// Clientes
-//RECORDATORIO BORRAR COMNETARIOS ¡¡¡¡¡
+﻿using System;
+using System.Collections.Generic;
+// equipo
 namespace XelaTech
 {
-    public class Cliente
+    public class GestorEquipos
     {
-        private string codigo;
-        public string Codigo
+        private List<Equipo> equipos = new List<Equipo>();
+
+        public int Cantidad
         {
-            get { return codigo; }
-            set
+            get { return equipos.Count; }
+        }
+
+        public List<Equipo> ObtenerTodos()
+        {
+            return equipos;
+        }
+
+        // Registrar: impide códigos internos y números de serie duplicados
+        public void Registrar(Equipo nuevo)
+        {
+            if (nuevo == null)
             {
-                //el codigo no puede quedar vacio y no puede exceder los 10 caracteres
-                if (value != null && value.Length <= 10)
-                {
-                    codigo = value;
-                }
-                else
-                {
-                    Console.WriteLine("El código no puede quedar vacío y no puede exceder los 10 caracteres.");
-                }
+                throw new ArgumentException("El equipo no puede ser nulo.");
             }
-        }
-
-        private string nombreCompleto;
-        public string NombreCompleto
-        {
-            get { return nombreCompleto; }
-            set
+            if (BuscarPorCodigo(nuevo.CodigoInterno) != null)
             {
-                // el nombre no puede quedad vacio y no puede exceder los 50 caracteres(por motivos de seguridad)
-                if (value != null && value.Length <= 50)
-                {
-                    nombreCompleto = value;
-                }
-                else
-                {
-                    Console.WriteLine("El nombre no puede quedar vacío y no puede exceder los 50 caracteres.");
-                }
-
+                throw new ArgumentException("Ya existe un equipo con el código " + nuevo.CodigoInterno + ".");
             }
-        }
-
-        private int telefono;
-        public int Telefono
-        {
-            get { return telefono; }
-            set
+            if (ExisteNumeroSerie(nuevo.NumeroSerie))
             {
-                //el telefono no puede quedar vacio y no puede exceder los 10 caracteres
-                if (value.ToString().Length <= 10)
-                {
-                    telefono = value;
-                }
-                else
-                {
-                    Console.WriteLine("El teléfono no puede quedar vacío y no puede exceder los 10 caracteres.");
-                }
+                throw new ArgumentException("Ya existe un equipo con el número de serie " + nuevo.NumeroSerie + ".");
             }
+            equipos.Add(nuevo);
         }
 
-        private string correoElectronico;
-        public string CorreoElectronico
+        public bool ExisteNumeroSerie(string numeroSerie)
         {
-            get { return correoElectronico; }
-            set
+            for (int i = 0; i < equipos.Count; i++)
             {
-                //el correo no puede quedar vacio y no puede exceder los 50 caracteres
-                if (value != null && value.Length <= 50)
+                if (equipos[i].NumeroSerie == numeroSerie)
                 {
-                    correoElectronico = value;
-                }
-                else
-                {
-                    Console.WriteLine("El correo electrónico no puede quedar vacío y no puede exceder los 50 caracteres.");
+                    return true;
                 }
             }
+            return false;
         }
-        private string tipoCliente;
-        public string TipoCliente
+
+        // Búsqueda secuencial por código (devuelve null si no existe)
+        public Equipo BuscarPorCodigo(string codigo)
         {
-            get { return tipoCliente; }
-            set {                 //el tipo de cliente no puede quedar vacio y no puede exceder los 20 caracteres
-                if (value != null && value.Length <= 20)
-                {
-                    tipoCliente = value;
-                }
-                else
-                {
-                    Console.WriteLine("El tipo de cliente no puede quedar vacío y no puede exceder los 20 caracteres.");
-                } 
-            }
-        }
-        private int cantidadSolicitudes;
-        public int CantidadSolicitudes
-        {
-            get { return cantidadSolicitudes; }
-            set
+            for (int i = 0; i < equipos.Count; i++)
             {
-                if (value != null && value > 0)
+                if (equipos[i].CodigoInterno == codigo)
                 {
-                    cantidadSolicitudes = value;
-                }
-                else 
-                {
-                    Console.WriteLine("La cantidad de solicitudes debe ser un número positivo");
+                    return equipos[i];
                 }
             }
+            return null;
         }
 
-        private int solicitidesActivas;
-        public int SolicitidesActivas
+        // Búsqueda secuencial por marca: devuelve TODAS las coincidencias
+        public List<Equipo> BuscarPorMarca(string marca)
         {
-            get { return solicitidesActivas; }
-            set
+            List<Equipo> resultado = new List<Equipo>();
+
+            if (marca == null || marca.Trim() == "")
             {
-                if (value != null && value > 0)
+                throw new ArgumentException("Debe ingresar una marca para buscar.");
+            }
+
+            for (int i = 0; i < equipos.Count; i++)
+            {
+                if (equipos[i].Marca.ToLower().Contains(marca.Trim().ToLower()))
                 {
-                    solicitidesActivas = value;
-                }
-                else
-                {
-                    Console.WriteLine("La cantidad de solicitudes activas debe ser un número positivo");
+                    resultado.Add(equipos[i]);
                 }
             }
+            return resultado;
         }
-        
-        //constructores 
-
-        public virtual void ActualizarDatosCliente(string codigo, string nombreCompleto, int telefono, string correoElectronico, string tipoCliente, int cantidadSolicitudes, int solicitidesActivas)
-        {
-            Codigo = codigo;
-            NombreCompleto = nombreCompleto;
-            Telefono = telefono;
-            CorreoElectronico = correoElectronico;
-            TipoCliente = tipoCliente;
-            CantidadSolicitudes = cantidadSolicitudes;
-            SolicitidesActivas = solicitidesActivas;
-        }
-
-        public void RegistrarNuevaSolicitud(string codigo, string nombreCompleto, int telefono, string correoElectronico, string tipoCliente, int cantidadSolicitudes, int solicitidesActivas)
-        {
-            Codigo = codigo;
-            NombreCompleto = nombreCompleto;
-            Telefono = telefono;
-            CorreoElectronico = correoElectronico;
-            TipoCliente = tipoCliente;
-            CantidadSolicitudes = cantidadSolicitudes;
-            SolicitidesActivas = solicitidesActivas;
-        }
-
-        public void CerrarSolicitud(string codigo, string nombreCompleto, int telefono, string correoElectronico, string tipoCliente, int cantidadSolicitudes, int solicitidesActivas)
-        {
-            Codigo = codigo;
-            NombreCompleto = nombreCompleto;
-            Telefono = telefono;
-            CorreoElectronico = correoElectronico;
-            TipoCliente = tipoCliente;
-            CantidadSolicitudes = cantidadSolicitudes;
-            SolicitidesActivas = solicitidesActivas;
-        }
-
     }
 }
