@@ -2,7 +2,6 @@
 
 namespace XelaTech
 {
-    //repuesto tengo que arreglar la conecion 
     public class Repuesto
     {
         private string codigo;
@@ -129,11 +128,10 @@ namespace XelaTech
             }
         }
 
-        // Constructor
-        public Repuesto(string codigo, string nombre, string categoria, int existencia,
+        // Constructor. El código lo asigna GestorRepuestos al registrar
+        public Repuesto(string nombre, string categoria, int existencia,
                         int existenciaMinima, decimal costoUnitario, decimal precioVenta)
         {
-            Codigo = codigo;
             Nombre = nombre;
             Categoria = categoria;
             Existencia = existencia;
@@ -165,6 +163,7 @@ namespace XelaTech
             cantidadUtilizada = cantidadUtilizada + cantidad;
         }
 
+        // +EstaBajoMinimo() : bool (alcanza o queda por debajo de la existencia mínima; incluye agotado)
         public bool EstaBajoMinimo()
         {
             return existencia <= existenciaMinima;

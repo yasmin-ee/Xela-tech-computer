@@ -2,49 +2,53 @@
 
 namespace XelaTech
 {
-    public class Escritorio : Equipo
+    public class Impresora : Equipo
     {
-        private string tipoTorre;
-        public string TipoTorre
+        private string tipoImpresion;
+        public string TipoImpresion
         {
-            get { return tipoTorre; }
+            get { return tipoImpresion; }
             set
             {
                 if (value == null || value.Trim() == "")
                 {
-                    throw new ArgumentException("El tipo de torre no puede quedar vacío.");
+                    throw new ArgumentException("El tipo de impresión no puede quedar vacío.");
                 }
                 if (value.Length > 30)
                 {
-                    throw new ArgumentException("El tipo de torre no puede exceder los 30 caracteres.");
+                    throw new ArgumentException("El tipo de impresión no puede exceder los 30 caracteres.");
                 }
-                tipoTorre = value.Trim();
+                tipoImpresion = value.Trim();
             }
         }
 
         // Constructor: llama al constructor de Equipo con base
-        public Escritorio(string codigoInterno, string numeroSerie, string marca, string modelo,
-                          Cliente propietario, string estadoFisico, string accesorios, string tipoTorre)
-            : base(codigoInterno, numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
+        public Impresora(string numeroSerie, string marca, string modelo,
+                         Cliente propietario, string estadoFisico, string accesorios, string tipoImpresion)
+            : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
         {
-            TipoTorre = tipoTorre;
+            TipoImpresion = tipoImpresion;
         }
 
-        // Costo base Q100. Una torre "Gamer" necesita más pruebas, por eso suma Q50
+        // Láser Q120, Tinta Q80 y cualquier otro tipo Q100
         public override decimal CalcularCostoRevision()
         {
-            decimal costo = 100m;
+            string tipo = TipoImpresion.ToLower();
 
-            if (TipoTorre.ToLower() == "gamer")
+            if (tipo == "laser" || tipo == "láser")
             {
-                costo = costo + 50m;
+                return 120m;
             }
-            return costo;
+            if (tipo == "tinta")
+            {
+                return 80m;
+            }
+            return 100m;
         }
 
         public override Especialidad ObtenerEspecialidad()
         {
-            return Especialidad.Escritorio;
+            return Especialidad.Impresoras;
         }
     }
 }

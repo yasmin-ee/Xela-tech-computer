@@ -12,9 +12,9 @@ namespace XelaTech
         }
 
         // Constructor: llama al constructor de Equipo con base
-        public Portatil(string codigoInterno, string numeroSerie, string marca, string modelo,
+        public Portatil(string numeroSerie, string marca, string modelo,
                         Cliente propietario, string estadoFisico, string accesorios, bool incluyeCargador)
-            : base(codigoInterno, numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
+            : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
         {
             IncluyeCargador = incluyeCargador;
         }

@@ -23,9 +23,9 @@ namespace XelaTech
         }
 
         // Constructor: llama al constructor de Equipo con base
-        public Escritorio(string codigoInterno, string numeroSerie, string marca, string modelo,
+        public Escritorio(string numeroSerie, string marca, string modelo,
                           Cliente propietario, string estadoFisico, string accesorios, string tipoTorre)
-            : base(codigoInterno, numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
+            : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
         {
             TipoTorre = tipoTorre;
         }
