@@ -114,7 +114,6 @@ namespace XelaTech
             get { return accesorios; }
             set
             {
-                // Si no se entregaron accesorios se guarda "Ninguno"
                 if (value == null || value.Trim() == "")
                 {
                     accesorios = "Ninguno";
@@ -137,7 +136,6 @@ namespace XelaTech
             set { tieneSolicitudActiva = value; }
         }
 
-        // Constructor (las clases hijas lo llaman con base). El código interno lo asigna GestorEquipos al registrar
         protected Equipo(string numeroSerie, string marca, string modelo,
                          Cliente propietario, string estadoFisico, string accesorios)
         {
@@ -150,10 +148,8 @@ namespace XelaTech
             tieneSolicitudActiva = false;
         }
 
-        // Cada tipo de equipo calcula su costo de revisión (polimorfismo)
         public abstract decimal CalcularCostoRevision();
 
-        // Cada tipo de equipo indica qué especialidad de técnico necesita
         public abstract Especialidad ObtenerEspecialidad();
 
         public string MostrarFicha()

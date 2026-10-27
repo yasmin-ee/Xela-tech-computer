@@ -31,7 +31,6 @@ namespace XelaTech
                 throw new ArgumentException("La cantidad debe estar entre 1 y 100.");
             }
 
-            // Técnicos y repuestos base (solo si no existen)
             if (gestorTecnicos.Tecnicos.Count == 0)
             {
                 gestorTecnicos.Registrar("Carlos Pérez", Especialidad.Portatiles);

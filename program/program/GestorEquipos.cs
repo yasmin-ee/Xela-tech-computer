@@ -19,7 +19,6 @@ namespace XelaTech
             }
         }
 
-        // Último número usado para generar el código interno (E001, E002, ...)
         private int contadorCodigo;
         public int ContadorCodigo
         {
@@ -34,8 +33,7 @@ namespace XelaTech
             }
         }
 
-        // +Registrar(Equipo)
-        // Impide números de serie duplicados y le asigna al equipo su código interno único
+
         public void Registrar(Equipo equipo)
         {
             if (equipo == null)
@@ -52,7 +50,6 @@ namespace XelaTech
             equipos.Add(equipo);
         }
 
-        // +SerieExiste(string) : bool
         public bool SerieExiste(string numeroSerie)
         {
             if (numeroSerie == null)
@@ -70,7 +67,6 @@ namespace XelaTech
             return false;
         }
 
-        // +BuscarPorMarca(string) : List<Equipo>   (búsqueda secuencial, todas las coincidencias)
         public List<Equipo> BuscarPorMarca(string marca)
         {
             return Buscador.BusquedaSecuencial(equipos, marca);

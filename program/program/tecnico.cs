@@ -4,7 +4,6 @@ namespace XelaTech
 {
     public class Tecnico
     {
-        // Límite de trabajos activos por técnico
         public const int LIMITE_ACTIVOS = 3;
 
         private string codigo;
@@ -111,9 +110,6 @@ namespace XelaTech
             }
         }
 
-        // Constructores
-
-        // Constructor vacío
         public Tecnico()
         {
             disponible = true;
@@ -122,7 +118,6 @@ namespace XelaTech
             conteoCalificaciones = new int[5];
         }
 
-        // Sobrecarga del constructor
         public Tecnico(string codigo, string nombreCompleto, Especialidad especialidad)
         {
             Codigo = codigo;
@@ -134,19 +129,16 @@ namespace XelaTech
             conteoCalificaciones = new int[5];
         }
 
-        // +TieneCupo() : bool
         public bool TieneCupo()
         {
             return trabajosActivos < LIMITE_ACTIVOS;
         }
 
-        // +PuedeAtender(Especialidad) : bool
         public bool PuedeAtender(Especialidad requerida)
         {
             return especialidad == requerida;
         }
 
-        // +AsignarTrabajo()
         public void AsignarTrabajo()
         {
             if (!disponible)
@@ -160,7 +152,6 @@ namespace XelaTech
             trabajosActivos = trabajosActivos + 1;
         }
 
-        // +FinalizarTrabajo()
         public void FinalizarTrabajo()
         {
             if (trabajosActivos == 0)
@@ -171,7 +162,6 @@ namespace XelaTech
             serviciosFinalizados = serviciosFinalizados + 1;
         }
 
-        // +RegistrarCalificacion(int)
         public void RegistrarCalificacion(int calificacion)
         {
             if (calificacion < 1 || calificacion > 5)
@@ -181,7 +171,6 @@ namespace XelaTech
             conteoCalificaciones[calificacion - 1] = conteoCalificaciones[calificacion - 1] + 1;
         }
 
-        // CalcularPromedio
         public double CalcularPromedio()
         {
             int total = 0;

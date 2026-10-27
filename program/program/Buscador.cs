@@ -5,8 +5,7 @@ namespace XelaTech
 {
     public static class Buscador
     {
-        // +BusquedaSecuencial(lista, texto) : List
-        // Sobrecarga 1: clientes por nombre parcial. Devuelve TODAS las coincidencias.
+       
         public static List<Cliente> BusquedaSecuencial(List<Cliente> lista, string texto)
         {
             ValidarBusqueda(lista, texto);
@@ -22,7 +21,6 @@ namespace XelaTech
             return resultado;
         }
 
-        // Sobrecarga 2: equipos por marca. Devuelve TODAS las coincidencias.
         public static List<Equipo> BusquedaSecuencial(List<Equipo> lista, string texto)
         {
             ValidarBusqueda(lista, texto);
@@ -38,7 +36,6 @@ namespace XelaTech
             return resultado;
         }
 
-        // Sobrecarga 3: solicitudes por estado (el texto es el nombre del estado). Devuelve TODAS las coincidencias.
         public static List<Solicitud> BusquedaSecuencial(List<Solicitud> lista, string texto)
         {
             ValidarBusqueda(lista, texto);
@@ -54,8 +51,6 @@ namespace XelaTech
             return resultado;
         }
 
-        // +BusquedaBinaria(Solicitud[], codigo) : int
-        // Devuelve la posición de la solicitud o -1 si no existe. Exige datos ordenados por código.
         public static int BusquedaBinaria(Solicitud[] arreglo, int codigo)
         {
             if (arreglo == null || arreglo.Length == 0)
@@ -90,7 +85,6 @@ namespace XelaTech
             return -1;
         }
 
-        // +EstaOrdenada(Solicitud[]) : bool  (ascendente por código)
         public static bool EstaOrdenada(Solicitud[] arreglo)
         {
             if (arreglo == null)
@@ -108,7 +102,6 @@ namespace XelaTech
             return true;
         }
 
-        // Auxiliar privado (no está en el diagrama): validaciones comunes de la búsqueda secuencial
         private static void ValidarBusqueda(object lista, string texto)
         {
             if (lista == null)

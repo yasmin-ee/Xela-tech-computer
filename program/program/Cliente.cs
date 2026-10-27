@@ -62,7 +62,7 @@ namespace XelaTech
                 {
                     throw new ArgumentException("El teléfono no puede exceder los 10 caracteres.");
                 }
-                // Solo dígitos
+               
                 for (int i = 0; i < value.Length; i++)
                 {
                     if (!char.IsDigit(value[i]))
@@ -135,16 +135,12 @@ namespace XelaTech
             }
         }
 
-        // Constructores
-
-        // Constructor vacío: los contadores inician en 0
         public Cliente()
         {
             cantidadSolicitudes = 0;
             solicitudesActivas = 0;
         }
 
-        // Sobrecarga del constructor (el proyecto pide al menos una)
         public Cliente(string codigo, string nombreCompleto, string telefono, string correo, TipoCliente tipoCliente)
         {
             Codigo = codigo;
@@ -156,21 +152,18 @@ namespace XelaTech
             solicitudesActivas = 0;
         }
 
-        // +ActualizarDatos(telefono, correo)
         public void ActualizarDatos(string telefono, string correo)
         {
             Telefono = telefono;
             Correo = correo;
         }
 
-        // +RegistrarNuevaSolicitud()
         public void RegistrarNuevaSolicitud()
         {
             CantidadSolicitudes = CantidadSolicitudes + 1;
             SolicitudesActivas = SolicitudesActivas + 1;
         }
 
-        // +CerrarSolicitud()
         public void CerrarSolicitud()
         {
             if (SolicitudesActivas == 0)

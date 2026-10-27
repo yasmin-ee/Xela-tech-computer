@@ -5,7 +5,6 @@ namespace XelaTech
 {
     public class Menu
     {
-        // +Iniciar()
         public void Iniciar()
         {
             Sistema sistema = new Sistema();
@@ -65,7 +64,6 @@ namespace XelaTech
             }
         }
 
-        // -MostrarMenuPrincipal()
         private void MostrarMenuPrincipal()
         {
             if (!Console.IsOutputRedirected)
@@ -89,8 +87,6 @@ namespace XelaTech
             Console.WriteLine("============================================");
         }
 
-        // -LeerOpcion() : int
-        // Si el usuario escribe algo que no es un número, devuelve -1 y el menú no se rompe
         private int LeerOpcion()
         {
             Console.Write("Seleccione una opción: ");
@@ -110,8 +106,6 @@ namespace XelaTech
             }
             return -1;
         }
-
-        // ================== 1. CLIENTES ==================
 
         private void MenuClientes(Sistema sistema)
         {
@@ -183,8 +177,6 @@ namespace XelaTech
             Console.WriteLine("Cliente registrado: " + lista[lista.Count - 1]);
         }
 
-        // ================== 2. TÉCNICOS ==================
-
         private void MenuTecnicos(Sistema sistema)
         {
             int opcion = -1;
@@ -233,7 +225,6 @@ namespace XelaTech
             }
         }
 
-        // ================== 3. EQUIPOS ==================
 
         private void MenuEquipos(Sistema sistema)
         {
@@ -321,8 +312,6 @@ namespace XelaTech
             sistema.GestorEquipos.Registrar(equipo);
             Console.WriteLine("Equipo registrado con código " + equipo.CodigoInterno + ".");
         }
-
-        // ================== 4. SOLICITUDES ==================
 
         private void MenuSolicitudes(Sistema sistema)
         {
@@ -462,15 +451,12 @@ namespace XelaTech
         {
             Solicitud solicitud = BuscarSolicitud(sistema, LeerEntero("Código de la solicitud: "));
             solicitud.Cancelar();
-
-            // Si estaba esperando en una cola, se saca de ella respetando el orden de las demás
             sistema.GestorSolicitudes.ColaUrgente = SinSolicitud(sistema.GestorSolicitudes.ColaUrgente, solicitud);
             sistema.GestorSolicitudes.ColaNormal = SinSolicitud(sistema.GestorSolicitudes.ColaNormal, solicitud);
 
             Console.WriteLine("Solicitud cancelada.");
         }
 
-        // Devuelve una cola nueva con las mismas solicitudes (mismo orden) menos la indicada
         private Queue<Solicitud> SinSolicitud(Queue<Solicitud> cola, Solicitud excluida)
         {
             Queue<Solicitud> nueva = new Queue<Solicitud>();
@@ -485,7 +471,6 @@ namespace XelaTech
             return nueva;
         }
 
-        // ================== 5. REPUESTOS ==================
 
         private void MenuRepuestos(Sistema sistema)
         {
@@ -543,7 +528,6 @@ namespace XelaTech
             }
         }
 
-        // ================== 6. ATENCIÓN DE COLAS ==================
 
         private void MenuColas(Sistema sistema)
         {
@@ -588,7 +572,6 @@ namespace XelaTech
 
         private void AtenderSiguiente(Sistema sistema)
         {
-            // Primero se mira (sin sacar) quién sigue: urgente antes que normal
             Solicitud siguiente = null;
             if (sistema.GestorSolicitudes.ColaUrgente.Count > 0)
             {
@@ -626,7 +609,6 @@ namespace XelaTech
             Console.WriteLine("Solicitud " + atendida.Codigo + " asignada a " + tecnico.NombreCompleto + " (" + tecnico.Codigo + ").");
         }
 
-        // ================== 7. ORDENAMIENTOS ==================
 
         private void MenuOrdenamientos(Sistema sistema)
         {
@@ -678,7 +660,6 @@ namespace XelaTech
             List<Solicitud> lista = sistema.GestorSolicitudes.Solicitudes;
             bool asc = LeerAscendente();
 
-            // Se actualiza el total de cada solicitud con sus costos actuales antes de ordenar
             for (int i = 0; i < lista.Count; i++)
             {
                 lista[i].CalcularTotal();
@@ -724,7 +705,6 @@ namespace XelaTech
             MostrarArreglo(arreglo);
         }
 
-        // ================== 8. BÚSQUEDAS ==================
 
         private void MenuBusquedas(Sistema sistema)
         {
@@ -779,8 +759,6 @@ namespace XelaTech
         {
             int codigo = LeerEntero("Código de la solicitud a buscar: ");
 
-            // La lista se llena con códigos consecutivos, por lo que ya está ordenada por código;
-            // aun así, BusquedaBinaria lo comprueba con EstaOrdenada antes de buscar.
             Solicitud[] arreglo = sistema.GestorSolicitudes.Solicitudes.ToArray();
             int posicion = Buscador.BusquedaBinaria(arreglo, codigo);
 
@@ -794,8 +772,6 @@ namespace XelaTech
                 Console.WriteLine("Encontrada en la posición " + posicion + ": " + arreglo[posicion]);
             }
         }
-
-        // ================== 9. REPORTES ==================
 
         private void MenuReportes(Sistema sistema)
         {
@@ -859,8 +835,6 @@ namespace XelaTech
             }
         }
 
-        // ================== 10. DATOS DE PRUEBA ==================
-
         private void MenuGenerarDatos(Sistema sistema)
         {
             try
@@ -881,8 +855,6 @@ namespace XelaTech
             }
         }
 
-        // ================== AUXILIARES (no están en el diagrama) ==================
-
         private string LeerTexto(string mensaje)
         {
             Console.Write(mensaje);
@@ -894,7 +866,6 @@ namespace XelaTech
             return texto;
         }
 
-        // Los códigos se escriben en mayúsculas (c001 se convierte en C001)
         private string LeerCodigo(string mensaje)
         {
             return LeerTexto(mensaje).Trim().ToUpper();

@@ -22,7 +22,6 @@ namespace XelaTech
             }
         }
 
-        // Constructor: llama al constructor de Equipo con base
         public Impresora(string numeroSerie, string marca, string modelo,
                          Cliente propietario, string estadoFisico, string accesorios, string tipoImpresion)
             : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
@@ -30,7 +29,6 @@ namespace XelaTech
             TipoImpresion = tipoImpresion;
         }
 
-        // Láser Q120, Tinta Q80 y cualquier otro tipo Q100
         public override decimal CalcularCostoRevision()
         {
             string tipo = TipoImpresion.ToLower();

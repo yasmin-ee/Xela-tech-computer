@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//solicitud 
-
 namespace XelaTech
 {
     public class Solicitud
@@ -59,7 +57,6 @@ namespace XelaTech
             set { prioridad = value; }
         }
 
-        // Solo tiene get: el estado únicamente cambia con CambiarEstado, DeshacerEstado y Cancelar
         private EstadoSolicitud estado;
         public EstadoSolicitud Estado
         {
@@ -84,7 +81,6 @@ namespace XelaTech
             }
         }
 
-        // Tiempo estimado de atención, en horas
         private int tiempoEstimado;
         public int TiempoEstimado
         {
@@ -141,7 +137,6 @@ namespace XelaTech
             }
         }
 
-        // Pila con los estados anteriores (el último en entrar es el primero en salir)
         private Stack<EstadoSolicitud> historialEstados;
         public Stack<EstadoSolicitud> HistorialEstados
         {
@@ -170,7 +165,6 @@ namespace XelaTech
             }
         }
 
-        // Relaciones del diagrama (las flechas hacia Cliente, Equipo y Tecnico)
         private Cliente cliente;
         public Cliente Cliente
         {
@@ -189,18 +183,13 @@ namespace XelaTech
             get { return tecnico; }
         }
 
-        // Constructores
-
-        // +Solicitud(cliente, equipo, descripcion): prioridad Normal por defecto
         public Solicitud(Cliente cliente, Equipo equipo, string descripcion)
             : this(cliente, equipo, descripcion, Prioridad.Normal)
         {
         }
 
-        // +Solicitud(cliente, equipo, descripcion, prioridad)
         public Solicitud(Cliente cliente, Equipo equipo, string descripcion, Prioridad prioridad)
         {
-            // Primero se valida todo, después se modifican los objetos relacionados
             if (cliente == null)
             {
                 throw new ArgumentException("No se puede crear una solicitud para un cliente inexistente.");
@@ -233,12 +222,10 @@ namespace XelaTech
             historialEstados = new Stack<EstadoSolicitud>();
             repuestosUsados = new List<DetalleRepuesto>();
 
-            // Efectos sobre los objetos relacionados
             equipo.TieneSolicitudActiva = true;
             cliente.RegistrarNuevaSolicitud();
         }
 
-        // +CambiarEstado(EstadoSolicitud): solo permite avanzar al siguiente estado del proceso
         public void CambiarEstado(EstadoSolicitud nuevoEstado)
         {
             if (estado == EstadoSolicitud.Entregada || estado == EstadoSolicitud.Cancelada)
@@ -274,20 +261,16 @@ namespace XelaTech
             }
         }
 
-        // +DeshacerEstado(): regresa al estado anterior usando la pila
         public void DeshacerEstado()
         {
             if (estado == EstadoSolicitud.Entregada || estado == EstadoSolicitud.Cancelada)
             {
                 throw new InvalidOperationException("No se puede deshacer una solicitud entregada o cancelada.");
             }
-            // Se valida que la pila tenga información antes de desapilar
             if (historialEstados.Count == 0)
             {
                 throw new InvalidOperationException("El historial está vacío, no hay cambios que deshacer.");
             }
-
-            // Si se deshace la asignación, el técnico queda libre de este trabajo
             if (estado == EstadoSolicitud.Asignada)
             {
                 tecnico.TrabajosActivos = tecnico.TrabajosActivos - 1;
@@ -296,7 +279,6 @@ namespace XelaTech
             estado = historialEstados.Pop();
         }
 
-        // +AsignarTecnico(Tecnico)
         public void AsignarTecnico(Tecnico nuevoTecnico)
         {
             if (nuevoTecnico == null)
@@ -312,12 +294,11 @@ namespace XelaTech
                 throw new InvalidOperationException("El técnico no tiene la especialidad requerida.");
             }
 
-            nuevoTecnico.AsignarTrabajo();   // lanza error si no está disponible o llegó al límite
+            nuevoTecnico.AsignarTrabajo();   
             tecnico = nuevoTecnico;
             CambiarEstado(EstadoSolicitud.Asignada);
         }
 
-        // +AgregarRepuesto(Repuesto, int)
         public void AgregarRepuesto(Repuesto repuesto, int cantidad)
         {
             if (repuesto == null)
@@ -343,7 +324,6 @@ namespace XelaTech
             costoRepuestos = costoRepuestos + detalle.Subtotal;
         }
 
-        // +CalcularTotal() : decimal = mano de obra + repuestos + costo de revisión del equipo
         public decimal CalcularTotal()
         {
             decimal sumaRepuestos = 0m;
@@ -358,7 +338,6 @@ namespace XelaTech
             return total;
         }
 
-        // +Cancelar()
         public void Cancelar()
         {
             if (estado == EstadoSolicitud.Entregada)
@@ -370,7 +349,6 @@ namespace XelaTech
                 throw new InvalidOperationException("La solicitud ya está cancelada.");
             }
 
-            // Se libera al técnico (sin contarlo como servicio finalizado), al equipo y al cliente
             if (tecnico != null)
             {
                 tecnico.TrabajosActivos = tecnico.TrabajosActivos - 1;

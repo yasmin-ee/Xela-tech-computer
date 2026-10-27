@@ -2,8 +2,6 @@
 
 namespace XelaTech
 {
-    // Clase central: crea los gestores una sola vez y los conecta entre sí.
-    // Menu usa un objeto Sistema para llegar a todos los módulos.
     public class Sistema
     {
         private GestorClientes gestorClientes;

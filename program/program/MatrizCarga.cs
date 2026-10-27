@@ -4,8 +4,6 @@ namespace XelaTech
 {
     public class MatrizCarga
     {
-        // Filas = técnicos (posición del técnico en la lista), columnas = días de atención.
-        // Empieza sin filas y crece sola cuando se registra carga de un técnico nuevo.
         private int[,] carga = new int[0, 5];
         public int[,] Carga
         {
@@ -38,8 +36,6 @@ namespace XelaTech
             }
         }
 
-        // +Registrar(indiceTecnico, dia)
-        // indiceTecnico = posición del técnico en la lista (0 = T001); dia = posición del día (0 = Lunes)
         public void Registrar(int indiceTecnico, int dia)
         {
             if (indiceTecnico < 0)
@@ -58,7 +54,6 @@ namespace XelaTech
             carga[indiceTecnico, dia] = carga[indiceTecnico, dia] + 1;
         }
 
-        // +Mostrar(): imprime la matriz y señala el técnico y el día con mayor carga
         public void Mostrar()
         {
             Console.WriteLine("=== MATRIZ SEMANAL DE CARGA DE TRABAJO ===");
@@ -105,7 +100,6 @@ namespace XelaTech
             Console.WriteLine("Día con mayor carga: " + dias[dia] + " (" + TotalDia(dia) + " solicitudes)");
         }
 
-        // +TecnicoMayorCarga() : int   (posición del técnico; si hay empate, el primero)
         public int TecnicoMayorCarga()
         {
             int mejor = -1;
@@ -128,7 +122,6 @@ namespace XelaTech
             return mejor;
         }
 
-        // +DiaMayorCarga() : int   (posición del día; si hay empate, el primero)
         public int DiaMayorCarga()
         {
             int mejor = -1;
@@ -151,7 +144,6 @@ namespace XelaTech
             return mejor;
         }
 
-        // Auxiliares privados (no están en el diagrama)
 
         private int TotalTecnico(int fila)
         {
@@ -173,13 +165,11 @@ namespace XelaTech
             return total;
         }
 
-        // Los técnicos se registran como T001, T002... en el mismo orden de las filas
         private string EtiquetaTecnico(int fila)
         {
             return "T" + (fila + 1).ToString("000");
         }
 
-        // Crea una matriz con más filas y copia los valores anteriores
         private void AgrandarFilas(int filasNuevas)
         {
             int[,] ampliada = new int[filasNuevas, carga.GetLength(1)];

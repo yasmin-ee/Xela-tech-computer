@@ -19,7 +19,6 @@ namespace XelaTech
             }
         }
 
-        // Último número usado para generar el código (C001, C002, ...)
         private int contadorCodigo;
         public int ContadorCodigo
         {
@@ -34,8 +33,6 @@ namespace XelaTech
             }
         }
 
-        // +Registrar(nombre, telefono, correo, tipo)
-        // El código se genera solo y es único. Si algún dato es inválido, lanza error y no registra nada.
         public void Registrar(string nombre, string telefono, string correo, TipoCliente tipo)
         {
             string nuevoCodigo = "C" + (contadorCodigo + 1).ToString("000");
@@ -51,8 +48,6 @@ namespace XelaTech
             clientes.Add(nuevo);
         }
 
-        // +Actualizar(codigo)
-        // Pide por consola el nuevo teléfono y correo; con Enter se deja el dato actual
         public void Actualizar(string codigo)
         {
             Cliente cliente = BuscarPorCodigo(codigo);
@@ -80,7 +75,6 @@ namespace XelaTech
             cliente.ActualizarDatos(telefono, correo);
         }
 
-        // +BuscarPorCodigo(string) : Cliente   (devuelve null si no existe)
         public Cliente BuscarPorCodigo(string codigo)
         {
             for (int i = 0; i < clientes.Count; i++)
@@ -93,7 +87,6 @@ namespace XelaTech
             return null;
         }
 
-        // +BuscarPorNombreParcial(string) : List<Cliente>   (búsqueda secuencial, todas las coincidencias)
         public List<Cliente> BuscarPorNombreParcial(string texto)
         {
             return Buscador.BusquedaSecuencial(clientes, texto);

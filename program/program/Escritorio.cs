@@ -22,7 +22,6 @@ namespace XelaTech
             }
         }
 
-        // Constructor: llama al constructor de Equipo con base
         public Escritorio(string numeroSerie, string marca, string modelo,
                           Cliente propietario, string estadoFisico, string accesorios, string tipoTorre)
             : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
@@ -30,7 +29,6 @@ namespace XelaTech
             TipoTorre = tipoTorre;
         }
 
-        // Costo base Q100. Una torre "Gamer" necesita más pruebas, por eso suma Q50
         public override decimal CalcularCostoRevision()
         {
             decimal costo = 100m;

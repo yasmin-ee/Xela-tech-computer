@@ -18,7 +18,6 @@ namespace XelaTech
             }
         }
 
-        // Precio de venta que tenía el repuesto en el momento de usarlo
         private decimal precioAplicado;
         public decimal PrecioAplicado
         {
@@ -33,7 +32,6 @@ namespace XelaTech
             }
         }
 
-        // Relación "usa" del diagrama: el repuesto al que corresponde este detalle
         private Repuesto repuesto;
         public Repuesto Repuesto
         {
@@ -51,7 +49,6 @@ namespace XelaTech
             PrecioAplicado = repuesto.PrecioVenta;
         }
 
-        // +CalcularSubtotal() : decimal
         public decimal Subtotal
         {
             get { return cantidad * precioAplicado; }

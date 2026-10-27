@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\tecnico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\tecnico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\gestorsolicitudes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\gestorsolicitudes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\generadordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\generadordatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\gestorrepuestos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\gestorrepuestos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\detallesrepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\detallesrepuesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\gestorequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\gestorequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\especialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\especialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\gestorclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|solutionrelative:program\\gestorclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65B79B6F-C561-E134-A46F-E7F910EF4039}|program\\program.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\program\\program\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,58 +30,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "generadorDatos.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\generadorDatos.cs",
-              "RelativeDocumentMoniker": "program\\generadorDatos.cs",
-              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\generadorDatos.cs",
-              "RelativeToolTip": "program\\generadorDatos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "GestorSolicitudes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorSolicitudes.cs",
+              "RelativeDocumentMoniker": "program\\GestorSolicitudes.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorSolicitudes.cs",
+              "RelativeToolTip": "program\\GestorSolicitudes.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAmwI8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T15:11:28.36Z",
+              "WhenOpened": "2026-10-27T16:21:55.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GestorRepuestos.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorRepuestos.cs",
+              "RelativeDocumentMoniker": "program\\GestorRepuestos.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorRepuestos.cs",
+              "RelativeToolTip": "program\\GestorRepuestos.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T16:21:20.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "detallesrepuesto.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\detallesrepuesto.cs",
-              "RelativeDocumentMoniker": "program\\detallesrepuesto.cs",
-              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\detallesrepuesto.cs",
-              "RelativeToolTip": "program\\detallesrepuesto.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAswDUAAAAoAAAAAAAAAA==",
+              "Title": "GestorEquipos.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorEquipos.cs",
+              "RelativeDocumentMoniker": "program\\GestorEquipos.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorEquipos.cs",
+              "RelativeToolTip": "program\\GestorEquipos.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T15:10:03.775Z",
+              "WhenOpened": "2026-10-27T16:20:48.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "especialidad.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\especialidad.cs",
-              "RelativeDocumentMoniker": "program\\especialidad.cs",
-              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\especialidad.cs",
-              "RelativeToolTip": "program\\especialidad.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Title": "GestorClientes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorClientes.cs",
+              "RelativeDocumentMoniker": "program\\GestorClientes.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\GestorClientes.cs",
+              "RelativeToolTip": "program\\GestorClientes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T15:05:01.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "tecnico.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\tecnico.cs",
-              "RelativeDocumentMoniker": "program\\tecnico.cs",
-              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\program\\program\\tecnico.cs",
-              "RelativeToolTip": "program\\tecnico.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T14:54:27.557Z",
+              "WhenOpened": "2026-10-27T16:20:04.965Z",
               "EditorCaption": ""
             },
             {
@@ -94,8 +94,7 @@
               "RelativeToolTip": "program\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T20:43:49.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-23T20:43:49.661Z"
             }
           ]
         }

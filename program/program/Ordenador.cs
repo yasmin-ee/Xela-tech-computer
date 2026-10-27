@@ -2,12 +2,8 @@ using System;
 
 namespace XelaTech
 {
-    // Los cuatro algoritmos están programados a mano (sin Sort, OrderBy ni equivalentes)
-    // asc = true ordena de menor a mayor; asc = false ordena de mayor a menor
     public static class Ordenador
     {
-        // +BubbleSort(Solicitud[], criterio, asc)
-        // criterio: "total" (costo total) o "tiempo" (tiempo estimado)
         public static void BubbleSort(Solicitud[] arreglo, string criterio, bool asc)
         {
             if (arreglo == null || arreglo.Length < 2)
@@ -50,7 +46,6 @@ namespace XelaTech
             }
         }
 
-        // +SelectionSort(Tecnico[], asc)  (criterio: servicios finalizados)
         public static void SelectionSort(Tecnico[] arreglo, bool asc)
         {
             if (arreglo == null || arreglo.Length < 2)
@@ -91,7 +86,6 @@ namespace XelaTech
             }
         }
 
-        // +ShellSort(Repuesto[], asc)  (criterio: existencia disponible)
         public static void ShellSort(Repuesto[] arreglo, bool asc)
         {
             if (arreglo == null || arreglo.Length < 2)
@@ -139,8 +133,6 @@ namespace XelaTech
             }
         }
 
-        // +QuickSort(Solicitud[], ini, fin, asc)  (criterio: fecha de recepción)
-        // Se llama con ini = 0 y fin = arreglo.Length - 1
         public static void QuickSort(Solicitud[] arreglo, int ini, int fin, bool asc)
         {
             if (arreglo == null || arreglo.Length < 2)
@@ -160,7 +152,6 @@ namespace XelaTech
             }
         }
 
-        // Auxiliar privado (no está en el diagrama): parte el arreglo usando el último elemento como pivote
         private static int Particionar(Solicitud[] arreglo, int ini, int fin, bool asc)
         {
             DateTime pivote = arreglo[fin].FechaRecepcion;
@@ -193,8 +184,6 @@ namespace XelaTech
             arreglo[fin] = auxiliar;
             return i + 1;
         }
-
-        // Auxiliar privado (no está en el diagrama): valor de la solicitud según el criterio de BubbleSort
         private static decimal ObtenerValor(Solicitud solicitud, string criterio)
         {
             if (criterio == null)

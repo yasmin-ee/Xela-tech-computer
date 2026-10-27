@@ -19,7 +19,6 @@ namespace XelaTech
             }
         }
 
-        // Último número usado para generar el código (R001, R002, ...)
         private int contadorCodigo;
         public int ContadorCodigo
         {
@@ -34,8 +33,6 @@ namespace XelaTech
             }
         }
 
-        // +Registrar(Repuesto)
-        // Le asigna al repuesto su código único y lo guarda en la lista
         public void Registrar(Repuesto repuesto)
         {
             if (repuesto == null)
@@ -48,7 +45,6 @@ namespace XelaTech
             repuestos.Add(repuesto);
         }
 
-        // +ObtenerBajoMinimo() : List<Repuesto>   (existencia mínima o agotados)
         public List<Repuesto> ObtenerBajoMinimo()
         {
             List<Repuesto> resultado = new List<Repuesto>();

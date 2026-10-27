@@ -19,7 +19,6 @@ namespace XelaTech
             }
         }
 
-        // Último número usado para generar el código (T001, T002, ...)
         private int contadorCodigo;
         public int ContadorCodigo
         {
@@ -34,7 +33,6 @@ namespace XelaTech
             }
         }
 
-        // +Registrar(nombre, especialidad)
         public void Registrar(string nombre, Especialidad especialidad)
         {
             string nuevoCodigo = "T" + (contadorCodigo + 1).ToString("000");
@@ -45,9 +43,6 @@ namespace XelaTech
             tecnicos.Add(nuevo);
         }
 
-        // +BuscarDisponible(Especialidad) : Tecnico
-        // Elige al técnico disponible, con cupo y con la especialidad requerida que tenga menos trabajos activos.
-        // Devuelve null si no hay ninguno.
         public Tecnico BuscarDisponible(Especialidad especialidad)
         {
             Tecnico elegido = null;

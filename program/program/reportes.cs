@@ -5,8 +5,6 @@ namespace XelaTech
 {
     public class Reportes
     {
-        // Los reportes se construyen con los datos guardados durante la ejecución,
-        // por eso Reportes se relaciona con los gestores que los almacenan
         private GestorSolicitudes gestorSolicitudes;
         public GestorSolicitudes GestorSolicitudes
         {
@@ -55,8 +53,7 @@ namespace XelaTech
             GestorTecnicos = gestorTecnicos;
             GestorRepuestos = gestorRepuestos;
         }
-
-        // +SolicitudesEnEspera(): separadas por prioridad, en el orden en que serán atendidas
+}
         public void SolicitudesEnEspera()
         {
             Console.WriteLine("=== SOLICITUDES EN ESPERA ===");
@@ -88,7 +85,6 @@ namespace XelaTech
             }
         }
 
-        // +SolicitudesPorEstado(): activas, finalizadas y canceladas
         public void SolicitudesPorEstado()
         {
             List<Solicitud> todas = gestorSolicitudes.Solicitudes;
@@ -100,7 +96,6 @@ namespace XelaTech
                 return;
             }
 
-            // Activas: las que no están entregadas ni canceladas
             List<Solicitud> activas = new List<Solicitud>();
             for (int i = 0; i < todas.Count; i++)
             {
@@ -110,7 +105,6 @@ namespace XelaTech
                 }
             }
 
-            // Finalizadas y canceladas con la búsqueda secuencial del Buscador
             List<Solicitud> finalizadas = Buscador.BusquedaSecuencial(todas, EstadoSolicitud.Entregada.ToString());
             List<Solicitud> canceladas = Buscador.BusquedaSecuencial(todas, EstadoSolicitud.Cancelada.ToString());
 
@@ -119,7 +113,6 @@ namespace XelaTech
             MostrarSolicitudes("Canceladas", canceladas);
         }
 
-        // +TecnicosDisponibles(): disponibles con cupo y con carga completa
         public void TecnicosDisponibles()
         {
             List<Tecnico> tecnicos = gestorTecnicos.Tecnicos;
@@ -162,7 +155,6 @@ namespace XelaTech
             }
         }
 
-        // +TecnicoMasServicios(): ordena con Selection Sort (descendente) y muestra el primero
         public void TecnicoMasServicios()
         {
             List<Tecnico> tecnicos = gestorTecnicos.Tecnicos;
@@ -202,12 +194,10 @@ namespace XelaTech
             }
         }
 
-        // +EquiposPorTipo(): equipos atendidos (solicitudes entregadas) por tipo, con un arreglo unidimensional
         public void EquiposPorTipo()
         {
             List<Solicitud> todas = gestorSolicitudes.Solicitudes;
 
-            // conteo[0] = portátiles, conteo[1] = escritorio, conteo[2] = impresoras
             int[] conteo = new int[3];
 
             for (int i = 0; i < todas.Count; i++)
@@ -238,7 +228,6 @@ namespace XelaTech
             Console.WriteLine("Total atendidos: " + (conteo[0] + conteo[1] + conteo[2]));
         }
 
-        // +RepuestosBajoMinimo(): repuestos en existencia mínima o agotados, ordenados con Shell Sort (ascendente)
         public void RepuestosBajoMinimo()
         {
             List<Repuesto> bajos = gestorRepuestos.ObtenerBajoMinimo();
@@ -273,7 +262,6 @@ namespace XelaTech
             }
         }
 
-        // +IngresosTotales(): suma del total de las solicitudes entregadas
         public void IngresosTotales()
         {
             List<Solicitud> todas = gestorSolicitudes.Solicitudes;
@@ -294,7 +282,6 @@ namespace XelaTech
             Console.WriteLine("Ingresos totales: Q" + ingresos.ToString("F2"));
         }
 
-        // Auxiliar privado (no está en el diagrama): muestra un grupo de solicitudes con su título
         private void MostrarSolicitudes(string titulo, List<Solicitud> lista)
         {
             Console.WriteLine("--- " + titulo + " (" + lista.Count + ") ---");

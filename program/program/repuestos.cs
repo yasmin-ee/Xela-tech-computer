@@ -128,7 +128,6 @@ namespace XelaTech
             }
         }
 
-        // Constructor. El código lo asigna GestorRepuestos al registrar
         public Repuesto(string nombre, string categoria, int existencia,
                         int existenciaMinima, decimal costoUnitario, decimal precioVenta)
         {
@@ -141,14 +140,11 @@ namespace XelaTech
             cantidadUtilizada = 0;
         }
 
-        // +HayExistencia(int) : bool
         public bool HayExistencia(int cantidad)
         {
             return cantidad <= existencia;
         }
 
-        // +Usar(int)
-        // Descuenta la existencia y suma a la cantidad utilizada. Si no alcanza, lanza error.
         public void Usar(int cantidad)
         {
             if (cantidad <= 0)
@@ -163,7 +159,6 @@ namespace XelaTech
             cantidadUtilizada = cantidadUtilizada + cantidad;
         }
 
-        // +EstaBajoMinimo() : bool (alcanza o queda por debajo de la existencia mínima; incluye agotado)
         public bool EstaBajoMinimo()
         {
             return existencia <= existenciaMinima;

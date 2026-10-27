@@ -19,7 +19,6 @@ namespace XelaTech
             }
         }
 
-        // Cola FIFO de solicitudes urgentes (se atiende primero)
         private Queue<Solicitud> colaUrgente = new Queue<Solicitud>();
         public Queue<Solicitud> ColaUrgente
         {
@@ -34,7 +33,6 @@ namespace XelaTech
             }
         }
 
-        // Cola FIFO de solicitudes normales
         private Queue<Solicitud> colaNormal = new Queue<Solicitud>();
         public Queue<Solicitud> ColaNormal
         {
@@ -49,7 +47,6 @@ namespace XelaTech
             }
         }
 
-        // Último código asignado (la primera solicitud recibe el 1)
         private int contadorCodigo;
         public int ContadorCodigo
         {
@@ -64,8 +61,6 @@ namespace XelaTech
             }
         }
 
-        // +Crear(cliente, equipo, descripcion, prioridad)
-        // Crea la solicitud con código único y la guarda en la lista (todavía no está en cola)
         public void Crear(Cliente cliente, Equipo equipo, string descripcion, Prioridad prioridad)
         {
             Solicitud nueva = new Solicitud(cliente, equipo, descripcion, prioridad);
@@ -75,7 +70,6 @@ namespace XelaTech
             solicitudes.Add(nueva);
         }
 
-        // +Encolar(Solicitud): la coloca en la cola de su prioridad y pasa a EnEspera
         public void Encolar(Solicitud solicitud)
         {
             if (solicitud == null)
@@ -98,8 +92,6 @@ namespace XelaTech
             solicitud.CambiarEstado(EstadoSolicitud.EnEspera);
         }
 
-        // +AtenderSiguiente() : Solicitud
-        // Primero la cola urgente y luego la normal, respetando el orden de llegada (FIFO)
         public Solicitud AtenderSiguiente()
         {
             if (colaUrgente.Count > 0)
@@ -113,7 +105,6 @@ namespace XelaTech
             throw new InvalidOperationException("No hay solicitudes en espera en ninguna cola.");
         }
 
-        // +CambiarEstado(codigo, estado)
         public void CambiarEstado(int codigo, EstadoSolicitud estado)
         {
             Solicitud solicitud = ObtenerPorCodigo(codigo);
@@ -125,12 +116,10 @@ namespace XelaTech
             solicitud.CambiarEstado(estado);
         }
 
-        // +DeshacerCambio(codigo)
         public void DeshacerCambio(int codigo)
         {
             Solicitud solicitud = ObtenerPorCodigo(codigo);
 
-            // Si todavía está formada en una cola, no se puede regresar a Recibida
             if (solicitud.Estado == EstadoSolicitud.EnEspera &&
                 (colaUrgente.Contains(solicitud) || colaNormal.Contains(solicitud)))
             {
@@ -139,7 +128,6 @@ namespace XelaTech
             solicitud.DeshacerEstado();
         }
 
-        // +BuscarPorEstado(estado) : List<Solicitud>  (búsqueda secuencial, todas las coincidencias)
         public List<Solicitud> BuscarPorEstado(EstadoSolicitud estado)
         {
             List<Solicitud> resultado = new List<Solicitud>();
@@ -154,7 +142,6 @@ namespace XelaTech
             return resultado;
         }
 
-        // Auxiliar privado (no está en el diagrama): busca una solicitud por código o lanza error
         private Solicitud ObtenerPorCodigo(int codigo)
         {
             for (int i = 0; i < solicitudes.Count; i++)

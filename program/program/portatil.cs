@@ -11,7 +11,6 @@ namespace XelaTech
             set { incluyeCargador = value; }
         }
 
-        // Constructor: llama al constructor de Equipo con base
         public Portatil(string numeroSerie, string marca, string modelo,
                         Cliente propietario, string estadoFisico, string accesorios, bool incluyeCargador)
             : base(numeroSerie, marca, modelo, propietario, estadoFisico, accesorios)
@@ -19,7 +18,6 @@ namespace XelaTech
             IncluyeCargador = incluyeCargador;
         }
 
-        // Costo base Q150. Si no trae cargador, se suman Q25 para usar uno del taller en las pruebas
         public override decimal CalcularCostoRevision()
         {
             decimal costo = 150m;
