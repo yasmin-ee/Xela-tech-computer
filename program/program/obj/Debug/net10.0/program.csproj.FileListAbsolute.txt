@@ -3,3 +3,14 @@ C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\
 C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.AssemblyInfo.cs
 C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.csproj.CoreCompileInputs.cache
 C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.sourcelink.json
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\bin\Debug\net10.0\program.exe
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\bin\Debug\net10.0\program.deps.json
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\bin\Debug\net10.0\program.runtimeconfig.json
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\bin\Debug\net10.0\program.dll
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\bin\Debug\net10.0\program.pdb
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.dll
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\refint\program.dll
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.pdb
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.genruntimeconfig.cache
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\ref\program.dll
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\program\program\obj\Debug\net10.0\program.csproj.Up2Date

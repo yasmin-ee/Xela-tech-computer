@@ -2,13 +2,6 @@
 
 namespace XelaTech
 {
-    public enum Especialidad
-    {
-        ComputadoraPortatil,
-        ComputadoraEscritorio,
-        Impresora
-    }
-
     public class Tecnico
     {
         // Límite de trabajos activos por técnico

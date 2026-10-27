@@ -52,9 +52,9 @@ namespace XelaTech
         }
 
         // +CalcularSubtotal() : decimal
-        public decimal CalcularSubtotal()
+        public decimal Subtotal
         {
-            return cantidad * precioAplicado;
+            get { return cantidad * precioAplicado; }
         }
     }
 }
