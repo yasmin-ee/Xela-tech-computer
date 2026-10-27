@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestorRepuestos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6632E24E-4495-4254-B093-8B33C82AAE3A}|gestorRepuestos\\gestorRepuestos.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\gestorrepuestos\\gestorrepuestos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6632E24E-4495-4254-B093-8B33C82AAE3A}|gestorRepuestos\\gestorRepuestos.csproj|solutionrelative:gestorrepuestos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestorRepuestos\\gestorRepuestos\\Program.cs",
+              "RelativeDocumentMoniker": "gestorRepuestos\\Program.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestorRepuestos\\gestorRepuestos\\Program.cs",
+              "RelativeToolTip": "gestorRepuestos\\Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-24T17:58:04.341Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

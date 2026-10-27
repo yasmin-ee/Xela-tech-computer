@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestinSolicitud\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F06AF05-6957-4821-A50E-251374E76567}|gestinSolicitud\\gestinSolicitud.csproj|c:\\users\\hp\\onedrive\\desktop\\segundo-proyecto\\gestinsolicitud\\gestinsolicitud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F06AF05-6957-4821-A50E-251374E76567}|gestinSolicitud\\gestinSolicitud.csproj|solutionrelative:gestinsolicitud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestinSolicitud\\gestinSolicitud\\Program.cs",
+              "RelativeDocumentMoniker": "gestinSolicitud\\Program.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\Segundo-proyecto\\gestinSolicitud\\gestinSolicitud\\Program.cs",
+              "RelativeToolTip": "gestinSolicitud\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-23T20:47:36.211Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

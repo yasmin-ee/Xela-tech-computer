@@ -1,0 +1,5 @@
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\Menu\Menu\obj\Debug\net10.0\Menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\Menu\Menu\obj\Debug\net10.0\Menu.AssemblyInfoInputs.cache
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\Menu\Menu\obj\Debug\net10.0\Menu.AssemblyInfo.cs
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\Menu\Menu\obj\Debug\net10.0\Menu.csproj.CoreCompileInputs.cache
+C:\Users\hp\OneDrive\Desktop\Segundo-proyecto\Menu\Menu\obj\Debug\net10.0\Menu.sourcelink.json
